@@ -10,7 +10,7 @@ module.exports = function (env, argv) {
         entry: './src/index.jsx',
         output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, 'dists'),
         },
         module: {
             rules: [{
