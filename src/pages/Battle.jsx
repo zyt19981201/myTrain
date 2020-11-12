@@ -30,7 +30,7 @@ export default class Battle extends React.Component {
                         <img src={img4} style={{ 'boxShadow': '0 0 5px 3px #00000042' }} />
                     </Col>
                 </Row><br />
-                <h3>Players</h3> <br />
+                <h3>Player</h3> <br />
                 <Row>
                     <Col sm={12} md={6} lg={6}>
                         <h5>Player1：</h5>
