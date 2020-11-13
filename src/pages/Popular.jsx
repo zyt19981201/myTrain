@@ -180,7 +180,7 @@ export default class App extends React.Component {
                             </Col>)}
                         </Row>
                         <div className="text-center">
-                            {error && <Alert variant="danger" >{error.response.status} {error.response.statusText}</Alert>}
+                            {error && error.response && <Alert variant="danger" >{error.response.status} {error.response.statusText}</Alert>}
                         </div>
                         <div className="text-center">
                             <Button onClick={this.loadMore} disabled={loading}> {loading && <Spinner

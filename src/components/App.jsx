@@ -4,8 +4,9 @@ import Popular from '../pages/Popular.jsx'
 // import axios from 'axios'
 import React from 'react'
 import { Container, Nav, Row, Col } from 'react-bootstrap'
+import {hot} from 'react-hot-loader/root'
 
-export default class App extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = { route: 'Popular' }
@@ -53,3 +54,5 @@ export default class App extends React.Component {
         )
     }
 }
+
+export default hot(App);

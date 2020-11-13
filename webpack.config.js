@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = function (env, argv) {
     const isEnvDevelopment = argv.mode === 'development' || !argv.mode;
@@ -40,16 +41,20 @@ module.exports = function (env, argv) {
                     options: {
                         limit: 10000
                     }
-                }
+                },
+
             ]
         },
         devServer: {
-            contentBase: './dist'
+            contentBase: './dist',
+            hot: true,
         },
         plugins: [
             new HtmlWebpackPlugin({
                 template: "public/index.html"
-            })
+            }),
+            new webpack.NamedModulesPlugin(),
+            new webpack.HotModuleReplacementPlugin()
         ]
     }
 };
