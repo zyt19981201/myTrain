@@ -22,6 +22,7 @@
         "babel-loader": "^8.2.1",
         "babel-standalone": "^6.26.0",
         "bootstrap": "^4.5.3",
+        "eslint-loader": "^4.0.2",
         "file-loader": "^6.2.0",
         "font-awesome": "^4.7.0",
         "html-webpack-plugin": "^4.5.0",

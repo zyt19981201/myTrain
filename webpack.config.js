@@ -12,8 +12,17 @@ module.exports = function (env, argv) {
             filename: 'bundle.js',
             path: path.resolve(__dirname, 'dists'),
         },
+        performance: {
+            hints: false
+        },
         module: {
             rules: [{
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    enforce: "pre",
+                    use: "eslint-loader"
+                },
+                {
                     test: /\.jsx$/,
                     exclude: /node_moduels/,
                     use: 'babel-loader'
