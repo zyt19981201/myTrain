@@ -46,7 +46,7 @@ module.exports = function (env, argv) {
             ]
         },
         devServer: {
-            contentBase: './dist',
+            contentBase: './dists',
             hot: true,
         },
         plugins: [
@@ -55,6 +55,12 @@ module.exports = function (env, argv) {
             }),
             new webpack.NamedModulesPlugin(),
             new webpack.HotModuleReplacementPlugin()
-        ]
+        ],
+        resolve: {
+            //配置别名，在项目中可缩减引用路径
+            alias: {
+                '@': path.resolve('src'),
+            }
+        },
     }
 };
