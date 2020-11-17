@@ -60,6 +60,7 @@ module.exports = function (env, argv) {
             //配置别名，在项目中可缩减引用路径
             alias: {
                 '@': path.resolve('src'),
+                'favicon': path.resolve('public/hot.ico')
             }
         },
     }

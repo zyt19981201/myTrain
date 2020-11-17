@@ -1,8 +1,5 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
-// import ReactBootstrap from 'react-bootstrap';
-// import {ListGroup,Spinner,Alert,Container,Nav,Card,Row,Col,Button,ListGroupItem} from 'react-bootstrap';
 import 'lazysizes';
 import * as ReactBootstrap from 'react-bootstrap';
 
@@ -29,9 +26,7 @@ function getQueryVariable(variable) {
     }
   }
   return null;
-  // console.log('Query variable %s not found', variable);
 }
-console.log(`lanuage is : ${getQueryVariable('language')}`);
 const Header = (props) => {
   const menuItems = [
     'All',
@@ -81,7 +76,11 @@ const RepoCard = (props) => (
     <Card.Header className="text-center bg-white font-weight-bold">{props.no}</Card.Header>
     <Card.Body className="bg-light">
       <Card.Img src={img1} data-src={props.img} className="lazyload" />
-      <Card.Title className="text-center"><Card.Link href={props.url} className="text-danger" target="_blank">{props.title}</Card.Link></Card.Title>
+      <Card.Title className="text-center" style={{
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap'
+      }}><Card.Link href={props.url} className="text-danger" target="_blank">{props.title}</Card.Link></Card.Title>
       <ListGroup className="list-group-flush">
         <ListGroupItem className="bg-light">
           <Card.Text><i className="fa fa-user fa-lg fa-fw" style={{ color: 'orange' }} />{props.author}</Card.Text>

@@ -7,6 +7,10 @@ import Popular from '@/pages/Popular.jsx';
 // import axios from 'axios'
 import { hot } from 'react-hot-loader/root'
 
+// setConfig({
+//   showReactDomPatchNotification: false
+// });
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +18,7 @@ class App extends React.Component {
   }
 
   handleMenu(key) {
-    console.log('key', key);
+    // console.log('key', key);
     this.setState({
       route: key,
     });

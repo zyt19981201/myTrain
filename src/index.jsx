@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from '@/components/App.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import 'normalize.css'
 
 ReactDOM.render(
   <App />,
