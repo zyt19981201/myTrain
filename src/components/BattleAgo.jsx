@@ -164,7 +164,7 @@ export default class BatteAgo extends React.Component {
                           value={this.state.userName1} onChange={this.userChange} onKeyDown={() => { if (window.event.keyCode === 13) { this.userSubmit() } }}
                         />
                         <InputGroup.Append>
-                          {this.state.userName1 !== "" && this.state.bKey1 ? <Button variant="primary" onClick={this.userSubmit}>Button</Button> : <Button disabled="disabled" variant="outline-secondary"> Button</Button>}
+                          {this.state.userName1 !== "" && this.state.bKey1 ? <Button variant="primary" onClick={this.userSubmit}>Submit</Button> : <Button disabled="disabled" variant="outline-secondary"> Input</Button>}
                         </InputGroup.Append>
                       </InputGroup>
                       {this.state.loadKey1 ? (
@@ -200,7 +200,7 @@ export default class BatteAgo extends React.Component {
                           value={this.state.userName2} onChange={this.userChange2} onKeyDown={() => { if (window.event.keyCode === 13) { this.twoSubmit() } }}
                         />
                         <InputGroup.Append>
-                          {this.state.userName2 !== "" && this.state.bKey2 ? <Button variant="primary" onClick={this.twoSubmit}>Button</Button> : <Button disabled="disabled" variant="outline-secondary" > Button</Button>}
+                          {this.state.userName2 !== "" && this.state.bKey2 ? <Button variant="primary" onClick={this.twoSubmit}>Submit</Button> : <Button disabled="disabled" variant="outline-secondary" > Input</Button>}
                         </InputGroup.Append>
                       </InputGroup>
                       {this.state.loadKey2 ? (
@@ -213,7 +213,7 @@ export default class BatteAgo extends React.Component {
               </div>
             </Col>
           </Row>
-          
+
         </Container>
       </div>
     )
