@@ -8,10 +8,19 @@ module.exports = function (env, argv) {
     return {
         mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
         devtool: isEnvProduction ? 'source-map' : isEnvDevelopment && 'cheap-module-source-map',
-        entry: './src/index.jsx',
+        entry: {
+            index: './src/index.jsx',
+            another: './src/another-module.jsx'
+        },
         output: {
-            filename: 'bundle.js',
+            filename: '[name].bundle.js',
             path: path.resolve(__dirname, 'dists'),
+        },
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+                // name:'common'
+            }
         },
         performance: {
             hints: false
@@ -51,7 +60,8 @@ module.exports = function (env, argv) {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: "public/index.html"
+                template: "public/index.html",
+                title: 'Code Splitting'
             }),
             new webpack.NamedModulesPlugin(),
             new webpack.HotModuleReplacementPlugin()
