@@ -39,13 +39,13 @@ module.exports = function (env, argv) {
                 },
                 {
                     test: /\.css$/,
-                    include:[path.resolve(__dirname,'src/index.css'),/node_modules/],
-                    use: ['style-loader', 'css-loader']
+                    include: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
+                    use: ['style-loader', 'css-loader', 'postcss-loader']
                 },
                 {
                     test: /\.css$/,
-                    exclude:[path.resolve(__dirname,'src/index.css'),/node_modules/],
-                    use: ['style-loader', 'css-loader?modules']
+                    exclude: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
+                    use: ['style-loader', 'css-loader?modules', 'postcss-loader']
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/,
