@@ -36,9 +36,16 @@ module.exports = function (env, argv) {
                     test: /\.jsx$/,
                     exclude: /node_moduels/,
                     use: 'babel-loader'
-                }, {
+                },
+                {
                     test: /\.css$/,
+                    include:[path.resolve(__dirname,'src/index.css'),/node_modules/],
                     use: ['style-loader', 'css-loader']
+                },
+                {
+                    test: /\.css$/,
+                    exclude:[path.resolve(__dirname,'src/index.css'),/node_modules/],
+                    use: ['style-loader', 'css-loader?modules']
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/,

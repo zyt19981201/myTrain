@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import 'lazysizes';
+// import styles from 'bootstrap/dist/css/bootstrap.min.css';
 import * as ReactBootstrap from 'react-bootstrap';
 
 import img1 from '@/assets/imgs/pic1.png';
@@ -42,6 +43,7 @@ const Header = (props) => {
       <Container>
         <Nav
           className="justify-content-center"
+          // className={styles.}
           style={{ border: 'soild black' }}
           variant="tabs"
           defaultActiveKey="All"
