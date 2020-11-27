@@ -41,15 +41,14 @@ module.exports = function (env, argv) {
                 {
                     test: /\.css$/,
                     include: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
-                    // use: ['style-loader', 'css-loader', 'postcss-loader']
+                    //use: ['style-loader', 'css-loader', 'postcss-loader']
                     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
                 },
                 {
                     test: /\.css$/,
                     exclude: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
-                    // use: ['style-loader', 'css-loader?modules', 'postcss-loader']
+                    //use: ['style-loader', 'css-loader?modules', 'postcss-loader']
                     use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader']
-
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -62,20 +61,13 @@ module.exports = function (env, argv) {
                         limit: 10000
                     }
                 },
-
             ]
-        },
-        devServer: {
-            contentBase: './dists',
-            hot: true,
         },
         plugins: [
             new HtmlWebpackPlugin({
                 template: "public/index.html",
                 title: 'Code Splitting'
             }),
-            new webpack.NamedModulesPlugin(),
-            new webpack.HotModuleReplacementPlugin(),
             new MiniCssExtractPlugin({
                 filename: '[name].[contenthash:8].css',
                 chunkFilename: '[name].[contenthash:8].chunk.css'
