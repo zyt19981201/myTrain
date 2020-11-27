@@ -40,25 +40,25 @@ module.exports = function (env, argv) {
                 },
                 {
                     test: /\.css$/,
-                    include: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
+                    include: [path.resolve(__dirname, 'src/styles'), /node_modules/],
                     // use: ['style-loader', 'css-loader', 'postcss-loader']
                     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
                 },
                 {
                     test: /\.css$/,
-                    exclude: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
+                    exclude: [path.resolve(__dirname, 'src/styles'), /node_modules/],
                     // use: ['style-loader', 'css-loader?modules', 'postcss-loader']
                     use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader']
 
                 },
                 {
                     test: /\.less$/,
-                    include: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
+                    include: [path.resolve(__dirname, 'src/styles'), /node_modules/],
                     use: ['style-loader', 'css-loader', 'less-loader']
                 },
                 {
                     test: /\.less$/,
-                    exclude: [path.resolve(__dirname, 'src/index.less'), /node_modules/],
+                    exclude: [path.resolve(__dirname, 'src/styles'), /node_modules/],
                     use: ['style-loader', 'css-loader?modules', 'less-loader']
                 },
                 {

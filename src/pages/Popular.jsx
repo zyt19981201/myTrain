@@ -196,7 +196,7 @@ export default class App extends React.Component {
               {error && error.response && <Alert variant="danger">{error.response.status} {error.response.statusText}</Alert>}
             </div>
             <div className="text-center">
-              <Button onClick={this.loadMore} disabled={loading}> {loading && (
+              <Button className='button' onClick={this.loadMore} disabled={loading}> {loading && (
                 <Spinner
                   as="span"
                   animation="grow"

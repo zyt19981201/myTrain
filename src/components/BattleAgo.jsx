@@ -149,7 +149,7 @@ export default class BatteAgo extends React.Component {
                       <Card.Img variant="top" src={0 ? `${this.state.userItem1.owner.avatar_url}?size=200` : `https://github.com/${this.state.userName1}.png?size=200`} alt="" className="lazyload" style={{ width: '200px', height: '200px', margin: '0 auto' }} />
                       <Card.Body className="bg-light">
                         <Card.Title className="text-danger">{this.state.userName1}</Card.Title>
-                        <Button variant="primary" onClick={this.selKey1}>close</Button>
+                        <Button className='button' variant="primary" onClick={this.selKey1}>close</Button>
                       </Card.Body>
                     </Card>
                   </div>
@@ -164,7 +164,7 @@ export default class BatteAgo extends React.Component {
                           value={this.state.userName1} onChange={this.userChange} onKeyDown={() => { if (window.event.keyCode === 13) { this.userSubmit() } }}
                         />
                         <InputGroup.Append>
-                          {this.state.userName1 !== "" && this.state.bKey1 ? <Button variant="primary" onClick={this.userSubmit}>Submit</Button> : <Button disabled="disabled" variant="outline-secondary"> Input</Button>}
+                          {this.state.userName1 !== "" && this.state.bKey1 ? <Button className='button' variant="primary" onClick={this.userSubmit}>Submit</Button> : <Button className='button' disabled="disabled" variant="outline-secondary"> Input</Button>}
                         </InputGroup.Append>
                       </InputGroup>
                       {this.state.loadKey1 ? (
@@ -185,7 +185,7 @@ export default class BatteAgo extends React.Component {
                       <Card.Img variant="top" src={0 ? `${this.state.userItem2.owner.avatar_url}?size=200` : `https://github.com/${this.state.userName2}.png?size=200`} alt="" className="lazyload" style={{ width: '200px', height: '200px', margin: '0 auto' }} />
                       <Card.Body className="bg-light">
                         <Card.Title className="text-danger">{this.state.userName2}</Card.Title>
-                        <Button variant="primary" onClick={this.selKey2}>close</Button>
+                        <Button className='button' variant="primary" onClick={this.selKey2}>close</Button>
                       </Card.Body>
                     </Card>
                   </div>
@@ -200,7 +200,7 @@ export default class BatteAgo extends React.Component {
                           value={this.state.userName2} onChange={this.userChange2} onKeyDown={() => { if (window.event.keyCode === 13) { this.twoSubmit() } }}
                         />
                         <InputGroup.Append>
-                          {this.state.userName2 !== "" && this.state.bKey2 ? <Button variant="primary" onClick={this.twoSubmit}>Submit</Button> : <Button disabled="disabled" variant="outline-secondary" > Input</Button>}
+                          {this.state.userName2 !== "" && this.state.bKey2 ? <Button className='button' variant="primary" onClick={this.twoSubmit}>Submit</Button> : <Button className='button' disabled="disabled" variant="outline-secondary" > Input</Button>}
                         </InputGroup.Append>
                       </InputGroup>
                       {this.state.loadKey2 ? (

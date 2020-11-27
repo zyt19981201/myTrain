@@ -96,7 +96,7 @@ export default class Battle extends React.Component {
             <BatteAgo getChildData={this.getData} />
           )}
         <Router>
-          {this.state.oneKey && this.state.twoKey ? (<Link to={{ pathname: this.state.openKey ? `/battle` : `/battle/${this.state.userName1}&${this.state.userName2}` }}><Button type="button" variant="primary" onClick={this.openBattle}>{this.state.openKey ? "GOBACK" : "BATTLE"}</Button></Link>) : null}
+          {this.state.oneKey && this.state.twoKey ? (<Link to={{ pathname: this.state.openKey ? `/battle` : `/battle/${this.state.userName1}&${this.state.userName2}` }}><Button className='button' type="button" variant="primary" onClick={this.openBattle}>{this.state.openKey ? "GOBACK" : "BATTLE"}</Button></Link>) : null}
         </Router>
       </div>
     )
