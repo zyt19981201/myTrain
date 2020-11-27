@@ -52,6 +52,16 @@ module.exports = function (env, argv) {
 
                 },
                 {
+                    test: /\.less$/,
+                    include: [path.resolve(__dirname, 'src/index.css'), /node_modules/],
+                    use: ['style-loader', 'css-loader', 'less-loader']
+                },
+                {
+                    test: /\.less$/,
+                    exclude: [path.resolve(__dirname, 'src/index.less'), /node_modules/],
+                    use: ['style-loader', 'css-loader?modules', 'less-loader']
+                },
+                {
                     test: /\.(woff|woff2|eot|ttf|otf)$/,
                     use: ["file-loader"]
                 },
