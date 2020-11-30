@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = function (env, argv) {
     const isEnvDevelopment = argv.mode === 'development' || !argv.mode;
@@ -15,12 +18,28 @@ module.exports = function (env, argv) {
         },
         output: {
             filename: '[name].bundle.js',
-            path: path.resolve(__dirname, 'dists'),
+            path: path.resolve(__dirname, 'dist'),
         },
         optimization: {
+            minimize: true,
+            minimizer: [
+                new TerserPlugin(),
+                new OptimizeCssAssetsPlugin(),
+            ],
             splitChunks: {
                 chunks: 'all',
-                // name:'common'
+                name: true,
+                cacheGroups: {
+                    vendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        priority: -10
+                    },
+                    default: {
+                        minChunks: 2,
+                        priority: -20,
+                        reuseExistingChunk: true,
+                    }
+                }
             }
         },
         performance: {
@@ -51,6 +70,16 @@ module.exports = function (env, argv) {
                     use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader']
                 },
                 {
+                    test: /\.less$/,
+                    include: [path.resolve(__dirname, 'src/styles'), /node_modules/],
+                    use: ['style-loader', 'css-loader', 'less-loader']
+                },
+                {
+                    test: /\.less$/,
+                    exclude: [path.resolve(__dirname, 'src/styles'), /node_modules/],
+                    use: ['style-loader', 'css-loader?modules', 'less-loader']
+                },
+                {
                     test: /\.(woff|woff2|eot|ttf|otf)$/,
                     use: ["file-loader"]
                 },
@@ -71,7 +100,8 @@ module.exports = function (env, argv) {
             new MiniCssExtractPlugin({
                 filename: '[name].[contenthash:8].css',
                 chunkFilename: '[name].[contenthash:8].chunk.css'
-            })
+            }),
+            new BundleAnalyzerPlugin()
         ],
         resolve: {
             //配置别名，在项目中可缩减引用路径

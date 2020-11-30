@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = function (env, argv) {
     const isEnvDevelopment = argv.mode === 'development' || !argv.mode;
@@ -14,7 +14,7 @@ module.exports = function (env, argv) {
             another: './src/another-module.jsx'
         },
         output: {
-            filename: '[name].bundle.js',
+            filename: '[name].[hash:8].js',
             path: path.resolve(__dirname, 'dists'),
         },
         optimization: {
@@ -41,15 +41,14 @@ module.exports = function (env, argv) {
                 {
                     test: /\.css$/,
                     include: [path.resolve(__dirname, 'src/styles'), /node_modules/],
-                    // use: ['style-loader', 'css-loader', 'postcss-loader']
-                    use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+                    use: ['style-loader', 'css-loader', 'postcss-loader']
+                    // use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
                 },
                 {
                     test: /\.css$/,
                     exclude: [path.resolve(__dirname, 'src/styles'), /node_modules/],
-                    // use: ['style-loader', 'css-loader?modules', 'postcss-loader']
-                    use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader']
-
+                    use: ['style-loader', 'css-loader?modules', 'postcss-loader']
+                    // use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader']
                 },
                 {
                     test: /\.less$/,
@@ -86,10 +85,10 @@ module.exports = function (env, argv) {
             }),
             new webpack.NamedModulesPlugin(),
             new webpack.HotModuleReplacementPlugin(),
-            new MiniCssExtractPlugin({
-                filename: '[name].[contenthash:8].css',
-                chunkFilename: '[name].[contenthash:8].chunk.css'
-            })
+            // new MiniCssExtractPlugin({
+            //     filename: '[name].[contenthash:8].css',
+            //     chunkFilename: '[name].[contenthash:8].chunk.css'
+            // })
         ],
         resolve: {
             //配置别名，在项目中可缩减引用路径
