@@ -15,7 +15,7 @@ module.exports = function (env, argv) {
         },
         output: {
             filename: '[name].[hash:8].js',
-            path: path.resolve(__dirname, 'dists'),
+            path: path.resolve(__dirname, 'dist'),
         },
         optimization: {
             splitChunks: {
@@ -75,7 +75,7 @@ module.exports = function (env, argv) {
             ]
         },
         devServer: {
-            contentBase: './dists',
+            contentBase: './dist',
             hot: true,
         },
         plugins: [
