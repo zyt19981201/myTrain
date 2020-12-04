@@ -5,6 +5,7 @@ import 'lazysizes';
 import * as ReactBootstrap from 'react-bootstrap';
 
 import img1 from '@/assets/imgs/pic1.png';
+import { Router } from 'react-router-dom';
 
 const { ListGroup } = ReactBootstrap;
 const { Spinner } = ReactBootstrap;
@@ -37,7 +38,9 @@ const Header = (props) => {
     'Css',
     'Python',
   ];
-
+  let str = window.location.href
+  // console.log(str.match(/\?(\S*)/));
+  str = str.match(/\Popular\/(\S*)/) && str.match(/\Popular\/(\S*)/)[1] || 'All'
   return (
     <div>
       <Container>
@@ -46,7 +49,7 @@ const Header = (props) => {
           // className={styles.}
           style={{ border: 'soild black' }}
           variant="tabs"
-          defaultActiveKey="All"
+          defaultActiveKey={str}
           onSelect={(selectedKey) => props.onClick(selectedKey)}
         >
           {menuItems.map((item, key) => (
@@ -111,12 +114,15 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.handleNavClick();
+    let str = window.location.href
+    str = str.match(/\Popular\/(\S*)/) && str.match(/\Popular\/(\S*)/)[1] || 'All'
+    this.handleNavClick(str);
   }
 
   handleNavClick = async (type = 'all', page = 1) => {
     const { cards } = this.state;
     let url = '';
+    this.props.history.push({ pathname: `/Popular/${type}`})
     switch (type) {
       case 'Javascript':
         url = 'https://api.github.com/search/repositories?q=stars:%3E1+language:javascript&sort=stars&order=desc&type=Repositories';

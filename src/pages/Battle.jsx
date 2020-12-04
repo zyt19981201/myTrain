@@ -23,8 +23,12 @@ export default class Battle extends React.Component {
   }
 
   async componentDidMount() {
-    if (this.props.match.params.user) {
-      const arr = this.props.match.params.user.split("&")
+    if (window.location.href.indexOf('&') != -1) {
+      let str = window.location.href
+
+      str = str.match(/battle\/(\S*)/) && str.match(/battle\/(\S*)/)[1]
+      console.log(str);
+      const arr = str.split("&")
       await this.setState({
         userName1: arr[0],
         userName2: arr[1],
